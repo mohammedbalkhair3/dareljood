@@ -21,3 +21,10 @@ WP Mail SMTP
 
 7. Create appropriate pages
 
+###################################################################
+
+https://codepen.io/MakeCodingEasier/pen/dypeBEL?editors=1100
+
+1. Install WP Session Manager - for handling php sessions with wordpress
+
+2. Install Simple Custom CSS plugin - for Custom CSS
