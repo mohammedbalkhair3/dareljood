@@ -31,54 +31,116 @@ else {
 body {font-family: Arial;}
 </style>
 <body>
-<?php
-if (isset($_SESSION[$email_request]) and $_SESSION[$email_request] == 'success') {
-	echo "<div class='success_email'>Request already submitted successfully</div>";
-}
-?>
-<div class="table_container">	
-<table class='tbl_rec'>
 
 <?php
+if (isset($_SESSION[$email_request]) and $_SESSION[$email_request] == 'success') {
+	echo "<div class='div_container'><p style='background-color: lightgreen'>Request already submitted successfully</p></div>";
+}
 $maid_name="";
 
 foreach ($result as $row) {
 	$maid_name=$row->NAME;
-	$result_record="<tr>	
-	<td id='tbl_rec_td1'>
-	<img class='img_big' src='". get_home_url() . "/". $row->IMAGE_LOCATION ."';/>
-	<br><br>". $row->NAME . "</td>
-	<td align=left style='padding: 15px; width:30%'>
-	<h4>" . $row->REMARKS_HEADING . "</h4><br>" . $row->REMARKS . "</td>
-	<td align=left width=40%>
-	<table class='tablerec'>
-	<tr><td class='tbl_rec_td3'><b>NATIONALITY:</b> " . $row->NATIONALITY . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>RELIGION:</b> " . $row->RELIGION . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>DATE OF BIRTH:</b> " . $row->DOB . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>AGE:</b> " . $row->AGE . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>ADDRESS:</b> " . $row->ADDRESS . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>MARITAL STATUS:</b> " . $row->MARITAL_STATUS . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>WEIGHT KG:</b> " . $row->WEIGHT_KG . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>HEIGHT CM:</b> " . $row->HEIGHT_CM . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>LANGUAGES:</b> " . $row->LANGUAGES . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>EDUCATIONAL LEVEL:</b> " . $row->EDUCATIONAL_LEVEL . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>WASHING:</b> " . $row->WASHING . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>CLEANING:</b> " . $row->CLEANING . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>BABY SITTING:</b> " . $row->BABY_SITTING . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>COOKING:</b> " . $row->COOKING . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>IRONING:</b> " . $row->IRONING . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>EXPERIENCES:</b> " . $row->EXPERIENCES . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>AVAILABILITY:</b> " . $row->AVAILABILITY . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>DATE AVAILABLE:</b> " . $row->DATE_AVAILABLE . "</td></tr>
-	<tr><td class='tbl_rec_td3'><b>CURRENT RESIDENCE:</b> " . $row->CURRENT_RESIDENCE . "</td></tr>
-	</table></td>
-	<tr><td style='border-bottom:1px solid #C0C0C0;padding:1px; width:100%' colspan=3>&nbsp;</td></tr>";
-}
-echo "$result_record<tr><td colspan=3>&nbsp;</td></tr>
-<tr><td align=center colspan=3 style='font-family: Arial, Helvetica, sans-serif;  font-size: 20px;'><a href='".$previous."' class='button'> < Back</a></td></tr>
-<tr><td colspan=3>&nbsp;</td></tr>
-</table></div>";
+	$result_record="
+  <div class=\"div_container\">
+	<div class=\"div_sub_container\">
+		<img src=\"" . get_home_url() . "/". $row->IMAGE_LOCATION . "\"/>
+		<p>" . $row->NAME . "</p>
+	</div>
+	<div class=\"div_sub_container\">
+  	<h4>" . $row->REMARKS_HEADING . "</h4>
+    <p>" . $row->REMARKS . "</p>
+    </div>
+    <div class=\"div_sub_container\">
+		<table>
+		<tr>	
+			<th>Nationality:</th>
+			<td>" . $row->NATIONALITY . "</td>
+		</tr>
+		<tr>	
+			<th>Religion:</th>
+			<td>" . $row->RELIGION . "</td>
+		</tr>
+		<tr>	
+			<th>Date of Birth:</th>
+			<td>" . $row->DOB . "</td>
+		</tr>
+		<tr>	
+			<th>Age:</th>
+			<td>" . $row->AGE . "</td>
+		</tr>
+		<tr>	
+			<th>Address:</th>
+			<td>" . $row->ADDRESS . "</td>
+		</tr>
+		<tr>	
+			<th>Marital Status:</th>
+			<td>" . $row->MARITAL_STATUS . "</td>
+		</tr>
+		<tr>	
+			<th>Weight(KG):</th>
+			<td>" . $row->WEIGHT_KG . "</td>
+		</tr>
+		<tr>	
+			<th>Height(CM):</th>
+			<td>" . $row->HEIGHT_CM . "</td>
+		</tr>
+		<tr>	
+			<th>Languages:</th>
+			<td>" . $row->LANGUAGES . "</td>
+		</tr>
+		<tr>	
+			<th>Educational Level:</th>
+			<td>" . $row->EDUCATIONAL_LEVEL . "</td>
+		</tr>
+		<tr>	
+			<th>Washing:</th>
+			<td>" . $row->WASHING . "</td>
+		</tr>
+		<tr>	
+			<th>Cleaning:</th>
+			<td>" . $row->CLEANING . "</td>
+		</tr>
+		<tr>	
+			<th>Baby Sitting:</th>
+			<td>" . $row->BABY_SITTING . "</td>
+		</tr>
+		<tr>	
+			<th>Cooking:</th>
+			<td>" . $row->COOKING . "</td>
+		</tr>
+		<tr>	
+			<th>Ironing:</th>
+			<td>" . $row->IRONING . "</td>
+		</tr>
+		<tr>	
+			<th>Experiences:</th>
+			<td>" . $row->EXPERIENCES . "</td>
+		</tr>
+		<tr>	
+			<th>Availability:</th>
+			<td>" . $row->AVAILABILITY . "</td>
+		</tr>
+		<tr>	
+			<th>Date Available:</th>
+			<td>" . $row->DATE_AVAILABLE . "</td>
+		</tr>
+		<tr>	
+			<th>Current Residence:</th>
+			<td>" . $row->CURRENT_RESIDENCE . "</td>
+		</tr>
+		</table>
+   </div>
+   <div class=\"div_line\"></div>
+</div>";
 
+}
+echo "$result_record";
+?>
+
+<div class="div_container">
+	<p><a href='<?php echo $previous; ?>' class='button'> < Back</a></p>
+</div>
+<?php
 if ((!isset($_SESSION[$email_request]) or ($_SESSION[$email_request] != "success")) and !isset($_POST['sendEmailBtn'])) {
 ?>
 <button class="open-button" onclick="openForm()">Interested</button>
@@ -128,17 +190,14 @@ if (isset($_POST['sendEmailBtn'])){
 	<b>Customer Email: </b>" . $d_email . "<BR>
 	<b>Customer Contact Number: </b>" . $d_contactno . "<BR>
 	<b>Customer Message: </b>\""
-	. $d_message . "\"<BR><BR><b><U> Maid Details: </U></b><BR>
-	<div class='table_container'><table style='background-color:rgba(0, 0, 0, 0); width:100%'>
-	<tr><td style='border-bottom:1px solid #C0C0C0;padding:1px; width:100%' colspan=3>&nbsp;</td></tr>"
+	. $d_message . "\"<BR><BR><b><U> Maid Details: </U></b><BR>"
 	.$result_record."
-	</table></div>
 	</body>
 	</html>";
 	if (wp_mail('mohammed.balkhair@gmail.com', $d_subject, $d_message, $d_headers)) {
-		echo "<div class='success_email'>Request successfully submitted</div>";
+		echo "<div class='div_container'><p style='background-color: lightgreen'>Request successfully submitted</p></div>";
 	}else{
-		echo "<div class='fail_email'>Request submission failed. Please try again later</div>";
+		echo "<div class='div_container'><p style='background-color: orange'>Request submission failed. Please try again later</p></div>";
 	}
 	$_SESSION[$email_request]='success';
 }

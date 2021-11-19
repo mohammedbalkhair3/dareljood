@@ -1,57 +1,155 @@
-/* Enter Your Custom CSS Here */
-/* CSS used by mysql-query shortcode  - Start */
-.button {
-  padding: 8px 25px;
-  position: static;
-  font-size: 18px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #72a2ac;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 6px #999;
-}
+  /* Enter Your Custom CSS Here */
+  * {
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 
-.button:hover {background-color: #3d6c6f}
+  .div_container {
+    position: relative;
+    width: 100%;
+    padding: 2%;  /* added */
+  }
 
-.button:active {
-  box-shadow: 0 5px #666;
-  transform: translateY(2px);
-}
+  .div_container p {
+    width: 100%;    
+    vertical-align: middle; 
+    text-align: center;
+  }
 
-.table_container { padding: 10px 12px 0px 12px; width:100%  }
-.table_container th { background-color:lightblue; color:white; font-weight:bold; border-left: 1px solid white;}
-/* CSS used by mysql-query shortcode  - Start */
+  .div_sub_container {
+    width:33%;
+    padding: 2%;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
 
-/* CSS used by mysql-query-record shortcode  - Start */
-/* Back button */
-.button {
-  padding: 8px 25px;
-  position: static;
-  font-size: 18px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #72a2ac;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 6px #999;
-}
+  .div_line {    
+    width: 100%; 
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-bottom: 2px solid gray;
+  }
 
-.button:hover {background-color: #3d6c6f}
+  .button {
+    padding: 2% 5%;
+    position: static;
+    font-size: 100%;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #72a2ac;
+    text-decoration: none;
+    white-space: nowrap;
+    border: none;
+    border-radius: 15%;
+    box-shadow: 0 6px #999;
+  }
 
-.button:active {
-  box-shadow: 0 5px #666;
-  transform: translateY(2px);
-}
+  .button:hover {background-color: #3d6c6f}
 
-.table_container { padding: 10px 12px 0px 12px; width:100%  }
-.table_container th { background-color:lightblue; color:white; font-weight:bold; border-left: 1px solid white;}
-* {box-sizing: border-box;}
+  .button:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(2px);
+  } 
 
+  .div_sub_container table {
+    width:100%;
+    padding: 2%;
+    text-align: center;
+    border-collapse: collapse;
+  }
+
+  .div_sub_container table tr {
+    border-bottom: thin solid;
+  }
+
+  .div_sub_container table th {
+    width:50%;
+    padding: 2%;
+    text-align: left;
+    font-size: 90%;
+  }
+
+  .div_sub_container table td {
+    width:50%;
+    padding: 2%;
+    text-align: right;
+    font-size: 90%;
+  }
+
+  .div_sub_container img {
+    width: 70%; 
+    vertical-align: middle; 
+    text-align: center;
+    border-radius: 10%;
+  }
+
+  .div_sub_container p{
+    width: 100%;
+    vertical-align: middle; 
+    text-align: center;
+  }
+
+  /* Navigation Buttons - Starts */
+  .container {
+    width: 100%;
+    padding-top: 5%;
+    vertical-align: middle; 
+    text-align: center;
+  }
+  
+  .container .pagination {
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+  
+  .container .pagination a {
+    padding: 10px 20px;
+    margin: 0px -0.5px;
+    height: auto;
+    color: #333;
+    position: relative;
+    height: auto;
+  }
+  
+  .container .pagination a:hover {
+    background-color: #267fe6;
+    color: white;
+  }
+  
+  .container .pagination .active {
+    background-color: #267fe6;
+    color: white;
+  }
+  
+  .container .pagination .nav-link {
+    color: white;
+    background-color: #267fe6;
+    border: 2px #267fe6 solid;
+    padding: 8px 10px;
+  }
+  
+  .container .pagination .nav-link-left {
+    border-radius: 5px 0px 0px 5px;
+    margin-right: -5px;
+  }
+  
+  .container .pagination .nav-link-right {
+    border-radius: 0px 5px 5px 0px;
+    margin-left: -5px;
+  }
+  
+  .container .pagination .links {
+    border: 0.5px #cacaca solid;
+  }
+
+  /* Navigation Buttons - Ends */
+
+  /* Interested form - Starts */
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
   background-color: #72a2ac;
@@ -131,66 +229,23 @@
   opacity: 1;
 }
 
-/*
-@viewport{
-	zoom: 1.0;
-	width: extend-to-zoom;
-}
+  /* Interested form - End */
 
-@-ms-viewport{
-	width: extend-to-zoom;
-	zoom: 1.0;
-}
-*/
-/* CSS used by mysql-query-record shortcode  - End */
+  @media only screen and (max-width: 480px){
+  * {
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
 
-.tbl_rec{
-  width:100%;
-  background-color:rgba(0, 0, 0, 0); 
-  border: 1px solid #ccc; 
-}
+  .div_container {
+    display: block;
+  }
 
-.tbl_rec_td3 {
-  border-top: 1px solid;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-}
+  .div_sub_container{ 
+    width:100%;
+    display: block;
+  }
 
-.tablerec {
-  background-color:rgba(0, 0, 0, 0); 
-  border: 0px solid #ccc;
-}
-
-#tbl_rec_td1{
-  font-weight:bold; 
-  border-right: 1px solid; 
-  padding: 15px; 
-  width:30%;
-  text-align: center;
-}
-
-.img_big {
-  width: 300px; 
-  height: 300px;
-  border:0px none transparent;
-  border-radius: 10%;
-}
-
-.img_med {
-  width: 200px; 
-  height: 200px;
-  border:0px none transparent;
-  border-radius: 10%;
-}
-.success_email{
-  width:100%;
-  padding: 10px;
-  background-color: greenyellow; 
-  text-align: center;
-}
-.fail_email{
-  width:100%;
-  padding: 10px;
-  background-color: rgb(255, 158, 47); 
-  text-align: center;
-}
+  }
