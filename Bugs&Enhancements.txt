@@ -1,0 +1,6 @@
+Bugs & Enhancements:
+
+Photo size not consistent in the pages - Bug - Fixed
+set Global variables for setting page limits, email settings etc. - Enhancement (Custom Global Variables plugin) - Fixed
+Page validations number of pages - Bug
+Back button validations with page numbers - Bug

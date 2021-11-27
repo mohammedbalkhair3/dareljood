@@ -21,7 +21,6 @@ global $wpdb;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-	<!-- <link rel="stylesheet" href="/wp-includes/css/index.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap" rel="stylesheet">
 </head>
@@ -33,13 +32,17 @@ body {font-family: Arial;}
 <div class="div_container">
 
 <?php
-$limit = 10;
+$limit = $GLOBALS['cgv']['global_rec_limits'];
 
 if(isset($_GET['pg'])){
-	$pg = $_GET['pg'];
+	$pg = (int)$_GET['pg'];
+	if ($pg < 1)
+		$pg = 1;
 }else{
 	$pg = 1;
 }
+
+$_SESSION['maids_pg_num']=$pg;
 
 $offset = ($pg - 1) * $limit;
 
@@ -55,7 +58,7 @@ foreach ($result as $row) {
 	?>
 	<div class="div_container">
   <div class="div_sub_container">
-  	  <img src="<?php echo $row->IMAGE_LOCATION; ?>"/>
+  	  <img src="<?php echo $row->IMAGE_LOCATION; ?>"/>		
 	<p><a href=maid-profile?ID=<?php echo $row->ID; ?> class='button'>Maid Profile</a></p>
   </div>
   <div class="div_sub_container">

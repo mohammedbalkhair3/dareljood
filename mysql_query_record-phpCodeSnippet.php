@@ -1,6 +1,11 @@
 <?php
+
+$pg=1;
+if (isset($_SESSION['maids_pg_num'])){
+	$pg=(int)$_SESSION['maids_pg_num'];
+}
 $protocol = ((!isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";  
-$maidsPage = $protocol . $_SERVER['HTTP_HOST'] . "/maids";
+$maidsPage = $protocol . $_SERVER['HTTP_HOST'] . "/maids/?pg=".$pg;
  
 if (session_status() != PHP_SESSION_ACTIVE) {
 	echo("<script>location.href = '".$maidsPage."'</script>");
@@ -25,7 +30,7 @@ else {
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <style>
 body {font-family: Arial;}
@@ -43,7 +48,7 @@ foreach ($result as $row) {
 	$result_record="
   <div class=\"div_container\">
 	<div class=\"div_sub_container\">
-		<img src=\"" . get_home_url() . "/". $row->IMAGE_LOCATION . "\"/>
+		<img style=\"width: 350px; height: 350px;\" src=\"" . get_home_url() . "/". $row->IMAGE_LOCATION . "\"/>
 		<p>" . $row->NAME . "</p>
 	</div>
 	<div class=\"div_sub_container\">
@@ -176,6 +181,7 @@ if (isset($_POST['sendEmailBtn'])){
   $d_contactno = $_POST['d_contactno'];
   $d_message = $_POST['d_message'];
   $d_subject = 'Maid: '.$maid_name;
+  $to_email = $GLOBALS['cgv']['global_to_email'];
   // Content-Type helps email client to parse file as HTML 
   // therefore retaining styles
   $d_headers = 'MIME-Version: 1.0' . "\r\n";
@@ -194,12 +200,13 @@ if (isset($_POST['sendEmailBtn'])){
 	.$result_record."
 	</body>
 	</html>";
-	if (wp_mail('mohammed.balkhair@gmail.com', $d_subject, $d_message, $d_headers)) {
+	if (wp_mail($to_email, $d_subject, $d_message, $d_headers)) {
+		$_SESSION[$email_request]='success';
 		echo "<div class='div_container'><p style='background-color: lightgreen'>Request successfully submitted</p></div>";
 	}else{
+		$_SESSION[$email_request]='failed';
 		echo "<div class='div_container'><p style='background-color: orange'>Request submission failed. Please try again later</p></div>";
-	}
-	$_SESSION[$email_request]='success';
+	}	
 }
 
 ?>

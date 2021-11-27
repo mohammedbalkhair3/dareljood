@@ -28,3 +28,11 @@ https://codepen.io/MakeCodingEasier/pen/dypeBEL?editors=1100
 1. Install WP Session Manager - for handling php sessions with wordpress
 
 2. Install Simple Custom CSS plugin - for Custom CSS
+
+###################################################################
+
+1. Install Custom Global Variables plugin 
+
+2. Create the following global variables under settings -> Custom Global Variables
+global_rec_limits variable with value as 10
+global_to_email with value as mohammed.balkhair@gmail.com
